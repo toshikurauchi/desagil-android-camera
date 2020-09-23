@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  RelativeLayout é um layout mais sofisticado que LinearLayout.
+  Aqui, você pode posicionar cada elemento usando o elemento pai
+  ou os elementos irmãos como referência. Repare no código abaixo.
+-->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!--
+    Em um RelativeLayout, podemos usar os atributos
+    centerHorizontal e centerVertical para centralizar
+    facilmente o elemento no meio do elemento pai.
+    -->
+    <Button
+        android:id="@+id/button_example"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="Abrir Câmera" />
+
+    <!--
+      Como o nome indica, ImageView é um elemento que
+      representa uma imagem. Como tem match_parent nas
+      duas direções, ocupa a tela inteira. O padrão
+      do Android é mostrar "em cima" os elementos que
+      vem antes no XML, então o botão não desaparece.
+    -->
+    <ImageView
+        android:id="@+id/image_example"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="Última Foto" />
+
+</RelativeLayout>

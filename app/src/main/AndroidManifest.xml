@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="br.pro.hashi.ensino.desagil.camera">
+
+    <!--
+      Esta tag permite que o aplicativo dispare Intents relacionadas
+      ao uso da câmera do celular. O atributo required="true" indica
+      que essas Intents são essenciais. Se um dia esse aplicativo
+      fosse para a Play Store, esse atributo impediria que ele
+      fosse baixado por usuários que usam celulares sem câmera.
+    -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--
+          Esta tag define um provedor de arquivos do aplicativo.
+          É necessário definir um provedor de arquivos quando
+          queremos que o aplicativo compartilhe arquivos com
+          outros aplicativos. Neste caso, queremos que compartilhe
+          arquivos com o aplicativo de câmera, para que esse
+          aplicativo de câmera possa gravar fotos nesses arquivos.
+
+          Não é essencial entender a maior parte dos atributos e
+          subtags abaixo, mas preste atenção em duas coisas:
+
+          1) O nome de pacote definido no atributo "authorities"
+             deve ser EXATAMENTE O MESMO no código Java que for
+             usado para acessar esse provedor. Neste projeto em
+             particular, procure esse nome na classe MainActivity.
+             Cuidado com esse detalhe ao fazer um copy e paste.
+
+          2) O nome "@xml/file_paths" no atributo "resource"
+             corresponde ao arquivo "res/xml/file_paths.xml".
+        -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="br.pro.hashi.ensino.desagil.camera.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+    </application>
+
+</manifest>

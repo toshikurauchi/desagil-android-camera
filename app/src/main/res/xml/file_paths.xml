@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  Esta tag define caminhos onde arquivos podem ser
+  encontrados. Ela é usada pelo provedor de arquivos
+  definido em manifests/AndroidManifest.xml. Sem ela,
+  não é possível definir esse provedor e, portanto, não
+  é possível compartilhar arquivos com outros aplicativos.
+
+  Este arquivo não existe em um projeto padrão. Foi preciso
+  criar a pasta "xml" clicando com o botão direito na pasta
+  "res" e selecionando "New -> Android Resource Directory"
+  e depois criar o arquivo em si clicando com o botão
+  direito nela e selecionando "New -> XML resource file".
+
+  Preste atenção: o nome de pacote definido no atributo
+  "path" abaixo deve ser EXATAMENTE O MESMO do projeto.
+  Cuidado com esse detalhe ao fazer um copy e paste.
+-->
+
+<paths>
+    <external-path
+        name="my_images"
+        path="Android/data/br.pro.hashi.ensino.desagil.camera/files/Pictures" />
+</paths>
